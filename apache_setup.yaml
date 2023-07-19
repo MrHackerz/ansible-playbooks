@@ -4,7 +4,7 @@
   become: yes #Enable privilege escalation
   vars_prompt:
     - name: common_name
-      prompt: "192.168.56.3"
+      prompt: "192.168.53.3"
       private: no
 
   tasks: #List of tasks to be executed on target hosts
