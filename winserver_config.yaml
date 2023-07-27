@@ -1,0 +1,17 @@
+- hosts: winserver
+  gather_facts: false  # We don't need to gather facts in this playbook
+
+  tasks:
+    - name: Configure IP address
+      win_shell: |
+        $IPAddress = "192.168.58.5"  # Replace this with the desired IP address
+        $SubnetMask = "255.255.255.0"  # Replace this with the desired subnet mask
+        $DefaultGateway = "192.168.58.0"  # Replace this with the desired default gateway
+        $DNS = "8.8.8.8"  # Replace this with the desired DNS server
+
+        # Configure the network adapter with the desired IP settings
+        netsh interface ipv4 set address name="Ethernet2" static $IPAddress $SubnetMask $DefaultGateway
+        netsh interface ipv4 add dnsserver name="Ethernet2" address=$DNS index=1
+      become: yes
+      become_method: runas
+      become_user: Administrator
