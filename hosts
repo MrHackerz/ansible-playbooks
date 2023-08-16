@@ -1,5 +1,5 @@
 [webservers]
-192.168.53.3 ansible_ssh_user=devasc ansible_ssh_pass=Cisco123!
+192.168.56.3 ansible_ssh_user=devasc ansible_ssh_pass=Cisco123!
 
 [winserver]
 192.168.58.4 ansible_user=Administrator ansible_password="P@$$w0rd" ansible_port=5985 ansible_connection=winrm ansible_winrm_server_cert_validation=ignore
